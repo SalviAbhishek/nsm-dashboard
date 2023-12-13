@@ -42,21 +42,25 @@ const filesReducer = (state = initialState, action) => {
 };
 
 const filterItems = (items, searchTerm) => {
-  return items.reduce((acc, item) => {
-    const isMatch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+  let docsArr = [];
 
-    if (isMatch) {
-      acc.push(item);
-    }
-
-    if (item.sub_items && item.sub_items.length > 0) {
-      const filteredChildren = filterItems(item.sub_items, searchTerm);
-      if (filteredChildren.length > 0) {
-        acc.push({ ...item, sub_items: filteredChildren });
+  for (let index = 0; index < items?.length; index++) {
+    if (items[index].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+      docsArr.push({
+        ...items[index],
+        sub_items: filterItems(items[index].sub_items, searchTerm),
+      });
+    } else {
+      let sub_items = filterItems(items[index].sub_items, searchTerm);
+      if (sub_items?.length > 0) {
+        docsArr.push({
+          ...items[index],
+          sub_items: filterItems(items[index].sub_items, searchTerm),
+        });
       }
     }
-    return acc;
-  }, []);
+  }
+  return docsArr;
 };
 
 export default filesReducer;
