@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "type": 1,
+    "name": "Stage 1",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 2
+  },
+  {
+    "id": 2,
+    "type": 1,
+    "name": "Stage 2",
+    "sub_items": [
+      {
+        "type": 2,
+        "name": "2.1 Stage",
+        "level": 2,
+        "status": 3
+      },
+      {
+        "type": 2,
+        "name": "2.2 Stage",
+        "level": 2,
+        "status": 3
+      }
+    ],
+    "is_opened": true,
+    "level": 1,
+    "status": 3
+  },
+  {
+    "id": 3,
+    "type": 1,
+    "name": "Stage 3",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "id": 4,
+    "type": 1,
+    "name": "Stage 4",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "id": 5,
+    "type": 1,
+    "name": "Stage 5",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "id": 6,
+    "type": 1,
+    "name": "Stage 6",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 2
+  },
+  {
+    "id": 7,
+    "type": 1,
+    "name": "Stage 7",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "id": 8,
+    "type": 1,
+    "name": "Stage 8",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "id": 9,
+    "type": 1,
+    "name": "Stage 9",
+    "sub_items": [],
+    "is_opened": false,
+    "level": 1,
+    "status": 3
+  }
+]
