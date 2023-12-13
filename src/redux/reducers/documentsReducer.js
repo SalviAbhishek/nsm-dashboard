@@ -15,36 +15,14 @@ const filesReducer = (state = initialState, action) => {
 
     case "SEARCH_DOCUMENT":
       var input = action?.payload;
-      let docs = state?.documents.filter((document) => {
-        // Check if the document's name includes the input
-        if (document.name.toLowerCase().includes(input.toLowerCase())) {
-          if (document.sub_items && document?.sub_items?.length > 0) {
-            // Recursively filter children
-            document.sub_items = filterDocumentsForFolder(
-              document.sub_items,
-              input
-            );
-            return document.sub_items.length > 0;
-          }
-          return true;
-        }
-        // Check if the document is a folder and has children
-        if (document.sub_items && document?.sub_items?.length > 0) {
-          // Recursively filter children
-          document.sub_items = filterDocumentsForFolder(
-            document.sub_items,
-            input
-          );
-          return document.sub_items.length > 0;
-        }
-
-        return false;
-      });
+      let docsArr = [...state.documents];
+      let docs = filterItems(docsArr, input);
 
       return {
         ...state,
         searchTerm: action.payload,
         filteredDocuments: docs,
+        documents: state.documents,
       };
 
     case "FOLDER_OPENED":
@@ -63,22 +41,22 @@ const filesReducer = (state = initialState, action) => {
   }
 };
 
-// Helper function to filter documents for a folder
-function filterDocumentsForFolder(sub_items, input) {
-  return sub_items.filter((doc) => {
-    // Check if the child's name includes the input
-    if (doc.name.toLowerCase().includes(input.toLowerCase())) {
-      return true;
+const filterItems = (items, searchTerm) => {
+  return items.reduce((acc, item) => {
+    const isMatch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+    if (isMatch) {
+      acc.push(item);
     }
 
-    // Check if the child is a folder and has children
-    if (doc.sub_items) {
-      // Recursively filter children
-      doc.sub_items = filterDocumentsForFolder(doc.sub_items, input);
-      return doc.sub_items.length > 0;
+    if (item.sub_items && item.sub_items.length > 0) {
+      const filteredChildren = filterItems(item.sub_items, searchTerm);
+      if (filteredChildren.length > 0) {
+        acc.push({ ...item, sub_items: filteredChildren });
+      }
     }
+    return acc;
+  }, []);
+};
 
-    return false;
-  });
-}
 export default filesReducer;
