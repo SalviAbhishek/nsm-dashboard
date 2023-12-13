@@ -3,7 +3,14 @@
     "id": 1,
     "type": 1,
     "name": "Stage 1",
-    "sub_items": [],
+    "sub_items": [
+      {
+        "type": 2,
+        "name": "Abhishek Salvi's Resume",
+        "level": 2,
+        "status": 3
+      }
+    ],
     "is_opened": false,
     "level": 1,
     "status": 2
@@ -34,7 +41,14 @@
     "id": 3,
     "type": 1,
     "name": "Stage 3",
-    "sub_items": [],
+    "sub_items": [
+      {
+        "type": 2,
+        "name": "Mustafa's File",
+        "level": 2,
+        "status": 3
+      }
+    ],
     "is_opened": false,
     "level": 1,
     "status": 1
@@ -43,7 +57,20 @@
     "id": 4,
     "type": 1,
     "name": "Stage 4",
-    "sub_items": [],
+    "sub_items": [
+      {
+        "type": 2,
+        "name": "Coding Standard Document",
+        "level": 2,
+        "status": 3
+      },
+      {
+        "type": 2,
+        "name": "Faraz's File",
+        "level": 2,
+        "status": 3
+      }
+    ],
     "is_opened": false,
     "level": 1,
     "status": 1
@@ -56,41 +83,5 @@
     "is_opened": false,
     "level": 1,
     "status": 1
-  },
-  {
-    "id": 6,
-    "type": 1,
-    "name": "Stage 6",
-    "sub_items": [],
-    "is_opened": false,
-    "level": 1,
-    "status": 2
-  },
-  {
-    "id": 7,
-    "type": 1,
-    "name": "Stage 7",
-    "sub_items": [],
-    "is_opened": false,
-    "level": 1,
-    "status": 1
-  },
-  {
-    "id": 8,
-    "type": 1,
-    "name": "Stage 8",
-    "sub_items": [],
-    "is_opened": false,
-    "level": 1,
-    "status": 1
-  },
-  {
-    "id": 9,
-    "type": 1,
-    "name": "Stage 9",
-    "sub_items": [],
-    "is_opened": false,
-    "level": 1,
-    "status": 3
   }
 ]
